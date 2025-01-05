@@ -1,10 +1,10 @@
 name: Terraform Deploy S3
 
 on:
-  push:
-    branches:
-      - main
-
+  # push:
+  #   branches:
+  #     - main
+     workflow_dispatch:
 jobs:
   terraform:
     name: Terraform S3 Deployment
