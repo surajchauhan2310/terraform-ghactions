@@ -27,12 +27,15 @@ jobs:
     
     - name: Check Current Directory
       run: pwd
-      
+
     - name: Verify Directory Structure
       run: ls -R  # This ensures the modules directory and other files are correctly checked out
 
     - name: Initialize Terraform
-      run: terraform init
+      run: |
+          cd /home/runner/work/terraform-ghactions/terraform-ghactions
+            terraform init
+
 
     - name: Plan Terraform
       run: terraform plan -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}" \
