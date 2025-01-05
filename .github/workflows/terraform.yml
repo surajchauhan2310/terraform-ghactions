@@ -38,11 +38,10 @@ jobs:
 
 
     - name: Plan Terraform
-      run: terraform plan -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}" \
-                          -var="region=${{ secrets.TF_REGION }}" \
-                          -var="acl=${{ secrets.TF_ACL }}"
+      run: |
+        terraform plan -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}" -var="region=${{ secrets.TF_REGION }}" -var="acl=${{ secrets.TF_ACL }}"
+
 
     - name: Apply Terraform
-      run: terraform apply -auto-approve -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}" \
-                                         -var="region=${{ secrets.TF_REGION }}" \
-                                         -var="acl=${{ secrets.TF_ACL }}"
+      run: terraform apply -auto-approve -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}" -var="region=${{ secrets.TF_REGION }}" -var="acl=${{ secrets.TF_ACL }}"
+
